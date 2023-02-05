@@ -1,0 +1,549 @@
+.GuideWrapper {
+  width: 88vw;
+  height: 1000vh;
+  margin-left: 12vw;
+  overflow: hidden;
+
+  @media screen and (orientation: portrait) {
+    margin-left: 0;
+    height: 1100vh;
+    margin-top: 10vh;
+    width: 100vw;
+  }
+
+  &__copyright {
+    padding-left: 5vh;
+    padding-top: 12vh;
+    font-size: 1.75vh;
+
+    &__span {
+      font-weight: 600;
+      color: gray;
+    }
+  }
+
+  &__header {
+    width: 88vw;
+    height: 24vh;
+    background-color: rgb(240, 239, 239);
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    padding-top: 4.5vh;
+    padding-bottom: 4.5vh;
+    padding-left: 5vh;
+
+    @media screen and (orientation: portrait) {
+      width: 100vw;
+    }
+
+    &__title {
+      font-size: 4.2vh;
+      font-weight: 600;
+    }
+
+    &__paragraph {
+      font-size: 1.8vh;
+      font-weight: 400;
+      color: #444;
+      max-width: 40vw;
+
+      @media screen and (orientation: portrait) {
+        max-width: 90vw;
+      }
+    }
+  }
+
+  &__section {
+    padding-left: 5vh;
+    width: 88vw;
+    height: auto;
+    overflow: hidden;
+
+    @media screen and (orientation: portrait) {
+      width: 100vw;
+    }
+
+    &__flex {
+      width: 83vw;
+      height: 30vh;
+      padding-right: 5vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @mixin flexButton {
+        width: 15vh;
+        height: 6vh;
+        font-size: 2vh;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      &__button {
+        @include flexButton();
+        color: rgb(204, 204, 204);
+        border-bottom: solid rgb(204, 204, 204) 0.25vh;
+        transition: border-color 250ms, color 250ms;
+        will-change: border-color, color;
+      }
+
+      .selected {
+        @include flexButton();
+        color: rgb(5, 136, 243);
+        border-bottom: solid rgb(5, 136, 243) 0.25vh;
+      }
+
+      .selected:hover {
+        color: rgb(5, 136, 243);
+        border-bottom: solid rgb(5, 136, 243) 0.25vh;
+      }
+
+      &__button:hover {
+        color: rgb(173, 173, 173);
+        border-color: rgb(173, 173, 173);
+      }
+    }
+
+    &__notification {
+      padding: 3vh;
+      background-color: rgb(209, 220, 223);
+      text-align: center;
+      width: 83vw;
+      border-radius: 2vh;
+      font-weight: 400;
+      font-size: 2vh;
+      color: #333;
+
+      animation: notificationAppear 1s;
+
+      @keyframes notificationAppear {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__form {
+      height: 55vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding-right: 5vh;
+
+      &__button {
+        width: 14vh;
+        height: 5vh;
+        margin-top: 3vh;
+        cursor: pointer;
+        border: none;
+        border-radius: 1vh;
+        background-color: #333;
+        color: white;
+        font-size: 2vh;
+        font-weight: 600;
+
+        transition: background-color 250ms;
+        will-change: background-color;
+      }
+
+      &__button:hover {
+        background-color: rgb(61, 66, 68);
+      }
+
+      @mixin Input {
+        width: 80vw;
+        height: 6vh;
+        border-radius: 1vh;
+        border: solid rgb(196, 196, 196) 0.1vh;
+        background-color: #f8f8f8;
+        font-size: 1.7vh;
+        font-weight: 600;
+        padding-left: 1vh;
+        outline: none;
+        box-sizing: border-box;
+
+        transition: border-color 250ms;
+        will-change: border-color;
+      }
+
+      &__input {
+        @include Input();
+      }
+
+      &__select {
+        @include Input();
+        color: #333;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      &__textarea {
+        @include Input();
+        padding: 1vh;
+        max-width: 80vw;
+        min-width: 80vw;
+        height: 15vh;
+        max-height: 15vh;
+        min-height: 15vh;
+      }
+
+      &__input::placeholder,
+      &__textarea::placeholder {
+        color: rgb(173, 173, 173);
+      }
+
+      &__input:focus,
+      &__textarea:focus,
+      &__select:focus {
+        border-color: #333;
+      }
+
+      &__label {
+        font-size: 2vh;
+        color: #333;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+
+        &__input {
+          margin-right: 1vh;
+          cursor: pointer;
+          width: 2vh;
+          height: 2vh;
+        }
+      }
+    }
+
+    &__customGrid {
+      &__gridElement {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #e7ecf0;
+      }
+    }
+
+    &__buttonsContainer {
+      width: 83vw;
+      height: 38vh;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @mixin grid() {
+        width: 83vw;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        justify-items: left;
+        align-items: center;
+      }
+
+      &__grid {
+        @include grid;
+      }
+
+      &__grid--label {
+        @include grid;
+        transform: translateY(2.5vh);
+
+        &__label {
+          font-size: 2vh;
+          color: #333;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &__container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 84vw;
+      height: auto;
+    }
+
+    &__divider {
+      width: 70vw;
+      transform: translateX(-5vh);
+      margin-left: 9vw;
+      height: 0.1vh;
+      background-color: rgb(209, 209, 209);
+      margin-top: 10vh;
+      margin-bottom: 10vh;
+    }
+
+    &__title {
+      font-size: 3.6vh;
+      font-weight: 500;
+      color: #222;
+
+      padding: 3vh;
+      padding-left: 0vh;
+      padding-bottom: 2vh;
+    }
+
+    &__paragraph {
+      font-size: 2vh;
+      color: #555;
+      font-weight: 400;
+      padding: 3vh;
+      padding-left: 0vh;
+      padding-top: 0vh;
+      max-width: 60vw;
+
+      @media screen and (orientation: portrait) {
+        max-width: 85vw;
+      }
+    }
+
+    @mixin label {
+      font-size: 2vh;
+      color: #333;
+      font-weight: 600;
+    }
+
+    &__label {
+      @include label;
+    }
+
+    &__margLabel {
+      @include label;
+      display: block;
+      margin-top: 1.5vh;
+    }
+
+    .smargin {
+      display: block;
+      margin-top: 12vh;
+    }
+
+    &__largeH1 {
+      font-size: 3.6vh;
+      padding-top: 1vh;
+      padding-bottom: 2.5vh;
+    }
+
+    &__heading {
+      padding-top: 1vh;
+      padding-bottom: 2.5vh;
+    }
+
+    .lp {
+      font-size: x-large;
+    }
+
+    .p {
+      font-size: large;
+    }
+
+    &__ptag {
+      padding-top: 1vh;
+      padding-bottom: 2.5vh;
+    }
+
+    &__quote {
+      border-left: pink 0.5vh solid;
+      padding: 1vh 3vh;
+      margin-top: 2vh;
+      margin-bottom: 3vh;
+      font-size: 1.75vh;
+      max-width: 60vw;
+
+      @media screen and (orientation: portrait) {
+        max-width: 85vw;
+      }
+    }
+
+    &__ul {
+      margin-bottom: 3vh;
+      &__li {
+        margin-left: 3vh;
+        font-size: 1.9vh;
+        margin-top: 1vh;
+        color: #333;
+      }
+    }
+
+    &__link {
+      display: block;
+      color: #777;
+      text-decoration: none;
+      font-size: 2.1vh;
+      margin-top: 1vh;
+      margin-bottom: 3vh;
+    }
+
+    &__image {
+      width: 40vh;
+      margin-top: 1vh;
+
+      @media screen and (orientation: portrait) {
+        width: 35vh;
+      }
+    }
+
+    &__caption {
+      margin-bottom: 3vh;
+      font-size: 2vh;
+      margin-top: 0.5vh;
+    }
+  }
+}
+
+.rich {
+  font-size: 4.5vh;
+}
+
+.GuideNavbar {
+  width: 12vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1001;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  @media screen and (orientation: portrait) {
+    width: 100vw;
+    height: 10vh;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  background-image: radial-gradient(
+      circle farthest-corner at 0% 50%,
+      rgba(94, 3, 3, 0.15),
+      transparent 47%
+    ),
+    radial-gradient(
+      circle farthest-corner at 40% 130%,
+      rgba(42, 56, 85, 0.41),
+      transparent 58%
+    );
+  background-color: #1d1d1d;
+
+  &__hamburger-menu {
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    cursor: pointer;
+
+    transition: background-color 250ms;
+    will-change: background-color;
+
+    &__stripe {
+      width: 3vh;
+      height: 0.45vh;
+      background-color: white;
+      border-radius: 1vh;
+    }
+  }
+
+  .hamburgerShown {
+    background-color: rgb(18, 134, 211);
+  }
+
+  &__image {
+    width: 12vw;
+    padding: 4vh;
+
+    @media screen and (orientation: portrait) {
+      width: 16vh;
+      padding: 0vh;
+    }
+  }
+
+  &__links {
+    width: 12vw;
+    height: 42.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &__link {
+      padding-left: 2vw;
+      text-decoration: none;
+      color: white;
+      font-size: 2vh;
+      font-weight: 500;
+      width: 12vw;
+      height: 4.5vh;
+      display: flex;
+      align-items: center;
+
+      transition: background-color 200ms;
+      will-change: background-color;
+    }
+
+    &__link:hover {
+      background-color: #333;
+    }
+  }
+}
+
+.Slider {
+  width: 100vw;
+  height: auto;
+  background-color: rgb(18, 134, 211);
+  position: fixed;
+  z-index: 1000;
+  transform: translateY(-60vh);
+
+  transition: transform 250ms;
+  will-change: transform;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-top: 10vh;
+
+  &__link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.7vh;
+    font-weight: 600;
+    width: 100vw;
+    height: 4.5vh;
+    padding-left: 5vw;
+
+    display: flex;
+    align-items: center;
+
+    transition: background-color 250ms;
+    will-change: background-color;
+  }
+
+  &__link:hover {
+    background-color: #333;
+  }
+}
+
+.sliderShown {
+  transform: translateY(0vh);
+}

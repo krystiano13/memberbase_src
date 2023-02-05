@@ -1,0 +1,197 @@
+.ContactWrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 15vh;
+  padding-bottom: 10vh;
+
+  background-image: radial-gradient(
+      circle farthest-corner at 0% 50%,
+      rgba(255, 1, 1, 0.15),
+      transparent 47%
+    ),
+    radial-gradient(
+      circle farthest-corner at 40% 130%,
+      rgba(122, 167, 255, 0.41),
+      transparent 58%
+    );
+  background-color: #1d1d1d;
+
+  &__paragraph {
+    font-weight: 600;
+    color: #a8a8a8;
+    font-size: 1.8vh;
+  }
+
+  &__title {
+    color: white;
+    font-size: 4.5vh;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    color: #cecece;
+    font-size: 2vh;
+    max-width: 25vw;
+    width: 25vw;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+    @media screen and (orientation: portrait) {
+      width: 92vw;
+      max-width: 92vw;
+    }
+  }
+
+  &__form {
+    width: 25vw;
+    height: 50vh;
+    background-color: white;
+    margin-top: 3vh;
+
+    @media screen and (orientation: portrait) {
+      width: 90vw;
+      height: 45vh;
+    }
+
+    border-radius: 1.5vh;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @mixin LabelMixin {
+      color: #a8a8a8;
+      font-weight: 400;
+      font-size: 1.75vh;
+    }
+
+    @mixin InputMixin($width) {
+      width: $width;
+      height: 4vh;
+      transform: translateY(0.25vh);
+      border-radius: 1vh;
+      border: solid rgb(196, 196, 196) 0.1vh;
+      background-color: #f8f8f8;
+      font-size: 1.7vh;
+      font-weight: 600;
+      padding-left: 1vh;
+      outline: none;
+      box-sizing: border-box;
+      margin-top: 0.25vh;
+    }
+
+    &__label {
+      @include LabelMixin();
+      margin-left: 1.5vw;
+      margin-top: 1.5vh;
+
+      @media screen and (orientation: portrait) {
+        margin-left: 3vw;
+      }
+    }
+
+    &__input {
+      @include InputMixin(22vw);
+      margin-left: 1.5vw;
+
+      @media screen and (orientation: portrait) {
+        @include InputMixin(84vw);
+        margin-left: 3vw;
+      }
+    }
+
+    &__input::placeholder,
+    &__textarea::placeholder {
+      color: rgb(173, 173, 173);
+    }
+
+    &__input:focus,
+    &__textarea:focus {
+      border-color: #333;
+    }
+
+    &__textarea {
+      @include InputMixin(22vw);
+      margin-left: 1.5vw;
+      height: 15vh;
+      max-height: 15vh;
+      max-width: 22vw;
+      min-width: 22vw;
+
+      @media screen and (orientation: portrait) {
+        @include InputMixin(84vw);
+        margin-left: 3vw;
+        max-width: 84vw;
+        min-width: 84vw;
+      }
+    }
+
+    &__button {
+      width: 55%;
+      height: 10%;
+      border-radius: 1vh;
+      border: none;
+      background-color: #333;
+      color: white;
+      font-weight: 600;
+      font-size: 2vh;
+      cursor: pointer;
+      margin-left: 1.5vw;
+      margin-top: 2vh;
+
+      @media screen and (orientation: portrait) {
+        margin-left: 3vw;
+      }
+
+      transition: background-color 250ms;
+      will-change: background-color;
+    }
+
+    &__button:hover {
+      background-color: #555;
+    }
+
+    &__names {
+      width: 22vw;
+      margin-left: 1.5vw;
+      display: flex;
+      justify-content: space-between;
+
+      @media screen and (orientation: portrait) {
+        width: 84vw;
+        margin-left: 3vw;
+      }
+
+      &__nameInputSection {
+        &__label {
+          @include LabelMixin();
+        }
+
+        &__input {
+          @include InputMixin(10.5vw);
+
+          @media screen and (orientation: portrait) {
+            @include InputMixin(40vw);
+          }
+        }
+
+        &__input::placeholder {
+          color: rgb(173, 173, 173);
+        }
+
+        &__input:focus {
+          border-color: #333;
+        }
+      }
+    }
+  }
+}

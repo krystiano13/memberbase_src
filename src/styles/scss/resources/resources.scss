@@ -1,0 +1,139 @@
+.wrapper {
+  width: 100vw;
+  height: auto;
+
+  animation: simpleAppear 1s;
+
+  @media screen and (orientation: portrait) {
+    height: auto;
+  }
+
+  &__heading {
+    width: 100vw;
+    height: 10vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left: 20vw;
+    padding-right: 20vw;
+    padding-top: 5vh;
+
+    @media screen and (orientation: portrait) {
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
+
+    &__title {
+      font-size: 3vh;
+    }
+
+    &__button {
+      width: 12vw;
+      height: 5vh;
+      background-color: rgb(243, 241, 241);
+      border: none;
+      border-radius: 1.5vh;
+      border: solid rgb(192, 192, 192) 0.1vh;
+      color: rgb(95, 95, 95);
+      font-size: 1.75vh;
+      cursor: pointer;
+
+      transition: background-color 250ms;
+      will-change: background-color;
+
+      @media screen and (orientation: portrait) {
+        width: 15vh;
+      }
+    }
+
+    &__button:hover {
+      background-color: rgb(219, 219, 219);
+    }
+  }
+
+  &__resourceCards {
+    width: 100vw;
+    height: auto;
+    padding-top: 5vh;
+
+    display: flex;
+    justify-content: left;
+    align-content: center;
+    flex-wrap: wrap;
+
+    padding-right: 20vw;
+    padding-left: 20vw;
+
+    @media screen and (orientation: portrait) {
+      height: auto;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      padding-left: 0;
+      padding-right: 0;
+      justify-content: space-around;
+      margin-left: 5vw;
+    }
+
+    &__card {
+      width: 18vw;
+      height: 75vh;
+      cursor: pointer;
+      display: block;
+      margin: 1vh;
+      transform: translateX(-1vh);
+
+      transition: transform 250ms;
+      will-change: transform;
+
+      @media screen and (orientation: portrait) {
+        width: 90vw;
+        height: 80vh;
+      }
+
+      &__image {
+        width: 18vw;
+        height: 50vh;
+        object-fit: cover;
+
+        @media screen and (orientation: portrait) {
+          width: 90vw;
+          height: 60vh;
+        }
+      }
+
+      &__writtenBy {
+        color: rgb(160, 160, 160);
+        padding-top: 1.25vh;
+        padding-bottom: 1.25vh;
+        font-weight: 400;
+        font-size: 1.75vh;
+      }
+
+      &__title {
+        margin: 0;
+        font-size: 3vh;
+        padding-bottom: 1.25vh;
+      }
+
+      &__description {
+        font-weight: 300;
+        font-size: 1.6vh;
+        color: rgb(43, 43, 43);
+      }
+    }
+
+    &__card:hover {
+      transform: translateY(-0.75vh) translateX(-1vh);
+    }
+
+    .left {
+      //margin-left: 3vw;
+
+      @media screen and (orientation: portrait) {
+        margin-left: 0;
+      }
+    }
+  }
+}

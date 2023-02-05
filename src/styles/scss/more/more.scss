@@ -1,0 +1,113 @@
+.Wrapper {
+  width: 100vw;
+  height: 40vh;
+  background-color: #1d1d1d;
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+
+  background-image: radial-gradient(
+      circle farthest-corner at 0% 50%,
+      rgba(255, 1, 1, 0.15),
+      transparent 47%
+    ),
+    radial-gradient(
+      circle farthest-corner at 40% 130%,
+      rgba(122, 167, 255, 0.41),
+      transparent 58%
+    );
+
+  &__title {
+    text-align: center;
+    color: white;
+    font-size: 4vh;
+
+    @media screen and (orientation: portrait) {
+      font-size: 3.5vh;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    color: white;
+    font-size: 2.5vh;
+    max-width: 30vw;
+    font-weight: 400;
+    width: 30vw;
+    margin-left: 35vw;
+
+    @media screen and (orientation: portrait) {
+      width: 80vw;
+      max-width: 80vw;
+      font-size: 2.25vh;
+      margin-left: 10vw;
+    }
+  }
+
+  &__form {
+    width: 30vw;
+    height: 5vh;
+    margin-left: 35vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+
+    @media screen and (orientation: portrait) {
+      width: 85vw;
+      margin-left: 7.5vw;
+    }
+
+    &__input {
+      height: 5vh;
+      width: 16vw;
+      border-radius: 1.5vh;
+      font-size: 1.75vh;
+      padding-left: 1vw;
+      border: none;
+      outline: none;
+      font-weight: 500;
+
+      @media screen and (orientation: portrait) {
+       width : 48vw;
+      }
+
+      transition: border-color 250ms;
+      will-change: border-color;
+      border: solid transparent 0.1vh;
+    }
+
+    &__input::placeholder {
+      color: gray;
+    }
+
+    &__input:focus {
+      border-color: #1d1d1d;
+    }
+
+    &__button {
+      width: 10vw;
+      color: white;
+      border: none;
+      border-radius: 1.5vh;
+      background-color: #525758;
+      font-size: 2.1vh;
+      font-weight: 600;
+      cursor: pointer;
+
+      @media screen and (orientation: portrait) {
+       width : 30vw;
+      }
+
+      transition: background-color 250ms;
+      will-change: background-color;
+    }
+
+    &__button:hover {
+      background-color: #343738;
+    }
+  }
+}

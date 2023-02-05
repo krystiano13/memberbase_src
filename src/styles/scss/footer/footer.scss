@@ -1,0 +1,109 @@
+@use "sass:math";
+
+.Footer {
+  width: 100vw;
+  height: 40vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+
+  @media screen and (orientation: portrait) {
+    flex-direction: column;
+    height: 90vh;
+  }
+
+  &__logoPart {
+    width: 15vw;
+    height: 20vh;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    transform: translateY(-4vh);
+
+    @media screen and (orientation: portrait) {
+      width: 80vw;
+      height: 20vh;
+      transform: translateX(7.5vw) translateY(-4vh);
+    }
+
+    &__image {
+      width: 25vh;
+    }
+
+    &__paragraph {
+      transform: translateY(2vh);
+    }
+
+    &__rights {
+      transform: translateY(4vh);
+    }
+
+    &__paragraph,
+    &__rights {
+      font-weight: 400;
+      font-size: 1.6vh;
+      color: #333;
+
+      &__span {
+        color: #676;
+      }
+    }
+  }
+
+  &__hyperlinks {
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    @media screen and (orientation: portrait) {
+      width: 100vw;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: left;
+      height: 75vh;
+      margin-top: 5vh;
+    }
+
+    &__container {
+      width: math.div(40vw - 11vw, 3);
+      height: 18vh;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+
+      font-size: 1.6vh;
+
+      @media screen and (orientation: portrait) {
+        width: 50vw;
+        transform: translateX(7.5vw);
+
+        font-size : 1.8vh;
+      }
+
+      &__title {
+        color: #999;
+        font-weight: 600;
+      }
+
+      &__hyperlink {
+        margin-top: 1.4vh;
+        cursor: pointer;
+        text-decoration: none;
+        color: #555;
+
+        transition: color 250ms;
+        will-change: color;
+      }
+
+      &__hyperlink:hover {
+        color: #222;
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+.LicensesWrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: whitesmoke;
+  overflow: hidden;
+  margin-top: 8vh;
+  animation : simpleAppear 650ms;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+
+  padding-left: 20vw;
+  padding-top: 8vh;
+  padding-bottom: 8vh;
+
+  @media screen and (orientation: portrait) {
+    padding-left: 5vw;
+    height: 160vh;
+  }
+
+  &__title {
+    font-size: 5vh;
+    font-weight: 600;
+  }
+
+  &__description {
+    font-size: 1.85vh;
+    max-width: 25vw;
+    width: 25vw;
+    color: #444;
+
+    @media screen and (orientation: portrait) {
+      width: 80vw;
+      max-width: 80vw;
+      margin-top: 2vh;
+    }
+  }
+
+  &__info {
+    height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+
+    @media screen and (orientation: portrait) {
+      flex-direction: column;
+      height: 140vh;
+      justify-content: space-around;
+    }
+
+    &__images {
+      width: 35vw;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+
+      @media screen and (orientation: portrait) {
+        width: 95vw;
+      }
+
+      &__img {
+        width: 24vh;
+        margin-left: 1vw;
+        margin-right: 1vw;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        transform: translateX(-1vw);
+
+        @media screen and (orientation: portrait) {
+          width: 26vh;
+          margin-left: 0vw;
+          margin-right: 0vw;
+          margin-top: 3vh;
+          margin-bottom: 3vh;
+          transform: translateX(-2.5vw);
+        }
+      }
+    }
+
+    &__text {
+      width: 50vw;
+      transform: translateX(-15vw);
+
+      @media screen and (orientation: portrait) {
+        transform: translateX(0vw);
+        width : 95vw;
+      }
+
+      &__title {
+        font-size: 4.25vh;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+      }
+
+      &__link {
+        color: gray;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        font-size: 2vh;
+      }
+    }
+  }
+}

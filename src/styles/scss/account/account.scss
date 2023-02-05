@@ -1,0 +1,153 @@
+.Account {
+    width : 100vw;
+    height : 100vh;
+    padding-top : 20vh;
+    padding-bottom: 20vh;
+    animation: simpleAppear 650ms;
+    background-image: radial-gradient(
+      circle farthest-corner at 0% 50%,
+      rgba(255, 1, 1, 0.15),
+      transparent 47%
+    ),
+    radial-gradient(
+      circle farthest-corner at 40% 130%,
+      rgba(122, 167, 255, 0.41),
+      transparent 58%
+    );
+    background-color: #1d1d1d;
+
+    display : flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:center;
+
+    &__redirect {
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        color : rgb(199, 199, 199);
+    }
+
+    &__logo {
+        width : 25vh;
+    }
+
+    &__form {
+        width : 20vw;
+        height : 40vh;
+        background-color: white;
+        border-radius: 2vh;
+        padding-top : 3vh;
+        padding-bottom: 3vh;
+
+        animation: heroImage 400ms;
+
+        @media screen and (orientation : portrait){
+            width : 90vw;
+        }
+
+        text-align: center;
+
+        display : flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        &__title {
+            font-size : 3vh;
+        }
+
+        &__subtitle {
+            color : #555;
+            font-weight: 350;
+            font-size : 1.75vh;
+        }
+
+        &__input {
+            width : 70%;
+            height : 15%;
+            border-radius: 1vh;
+            border: solid rgb(196, 196, 196) 0.1vh;
+            background-color: #f1f1f1;
+            font-size : 1.7vh;
+            font-weight: 600;
+            padding-left : 1vh;
+            outline: none;
+
+            transition: border-color 250ms;
+            will-change: border-color;
+        }
+
+        &__input::placeholder {
+            color :rgb(173, 173, 173);
+        }
+
+        &__input:focus {
+            border-color: #333;
+        }
+
+        &__button {
+            width : 70%;
+            height : 15%;
+            border-radius: 1vh;
+            border: none;
+            background-color: #333;
+            color : white;
+            font-weight: 600;
+            font-size: 2vh;
+            cursor: pointer;
+
+            transition: background-color 250ms;
+            will-change: background-color;
+        }
+
+        &__button:hover {
+            background-color: #555;
+        }
+
+        &__terms {
+            display: flex;
+            align-items: flex-start;
+            padding-left : 15%;
+            padding-right : 15%;
+
+            &__label {
+                font-size : 1.6vh;
+                padding-left : 0.5vh;
+                text-align: left;
+            }
+        }
+
+        &__paragraph {
+            font-size : 1.6vh;
+            color : #333;
+
+            &__redirect {
+                text-decoration: none;
+                color : rgb(160, 160, 160);
+                padding-left: 0.5vh;
+                font-weight: 600;
+            }
+        }
+    }
+
+    #register {
+        height : 50vh;
+
+        .Account__form__input, .Account__form__button {
+            height : 12%;
+        }
+    }
+
+    #reset {
+         height : 32vh;
+
+        .Account__form__input, .Account__form__button {
+            height : 18%;
+        }
+
+        .Account__form__subtitle {
+            font-size: 1.75vh;
+        }
+    }
+}

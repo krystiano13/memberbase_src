@@ -1,0 +1,25 @@
+.App {
+    width : 100vw;
+    height : auto;
+    overflow-x: hidden;
+}
+
+@keyframes simpleAppear {
+    from {
+        opacity : 0;
+    }
+
+    to {
+        opacity : 1;
+    }
+}
+
+@keyframes heroImage {
+    from {
+        transform: translateY(10vh);
+    }
+
+    to {
+        transform: translateY(0vh);
+    }
+}
