@@ -12,8 +12,9 @@ interface NavbarInterface {
 }
 
 const Navbar: React.FC<NavbarInterface> = ({ portrait, handleSearch }) => {
+  const navButtons = React.useRef<HTMLDivElement>(null);
   const handleHamburgerMenuSwitch = () => {
-    document.querySelector("#navButtons")?.classList.toggle("switched");
+    navButtons.current?.classList.toggle("switched");
   };
 
   const searchResources = (e: ChangeEvent<HTMLInputElement>) => {
@@ -28,8 +29,8 @@ const Navbar: React.FC<NavbarInterface> = ({ portrait, handleSearch }) => {
   const location = useLocation();
 
   React.useEffect(() => {
-    window.scrollTo({ top : 0, behavior : 'smooth' });
-  },[location.pathname]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.pathname]);
 
   return (
     <nav className="navbar">
@@ -84,30 +85,24 @@ const Navbar: React.FC<NavbarInterface> = ({ portrait, handleSearch }) => {
               <section className="navbar__right__hamburgerMenu__stripe"></section>
             </div>
             <div
-              id="navButtons"
+              ref={navButtons}
               className="navbar__right__hamburgerButtons switched"
             >
               <NavLink
                 className="navbar__right__hamburgerButtons__a"
                 to="/memberbase/resources"
               >
-                <button
-                  className="navbar__right__hamburgerButtons__a__btn"
-                >
+                <button className="navbar__right__hamburgerButtons__a__btn">
                   All Resources
                 </button>
               </NavLink>
               <NavLink className="navbar__right__a" to="/memberbase/login">
-                <button
-                  className="navbar__right__hamburgerButtons__a__btn"
-                >
+                <button className="navbar__right__hamburgerButtons__a__btn">
                   Log In
                 </button>
               </NavLink>
               <NavLink className="navbar__right__a" to="/memberbase/register">
-                <button
-                  className="navbar__right__hamburgerButtons__a__btn--bg"
-                >
+                <button className="navbar__right__hamburgerButtons__a__btn--bg">
                   Free Sign Up
                 </button>
               </NavLink>

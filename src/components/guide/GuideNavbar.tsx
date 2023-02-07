@@ -6,14 +6,16 @@ interface GuideNavbarInterface {
 }
 
 const GuideNavbar: React.FC<GuideNavbarInterface> = ({ portrait }) => {
+  const hamburgerMenu = React.useRef<HTMLElement>(null);
+  const slider = React.useRef<HTMLElement>(null);
   const handleHamburgerMenuClick = () => {
-    document.querySelector("#hamburger")?.classList.toggle("hamburgerShown");
-    document.querySelector(".Slider")?.classList.toggle("sliderShown");
+    hamburgerMenu.current?.classList.toggle("hamburgerShown");
+    slider.current?.classList.toggle("sliderShown");
   };
   return (
     <>
       {portrait === true && (
-        <section className="Slider">
+        <section ref={slider} className="Slider">
           {NavbarButtons.map((item) => (
             <a className="Slider__link" href={item.href}>
               {item.name}
